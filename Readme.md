@@ -16,7 +16,7 @@ An in-depth paragraph about your project and overview of use.
 ### Installing
 
 ```
-conda create --name SITSclass python==3.12
+conda create --name disturbence_monitoring python==3.12
 conda activate disturbence_monitoring
 cd /path/to/repository/disturbence_monitoring
 pip install -r environments/requirements.txt
