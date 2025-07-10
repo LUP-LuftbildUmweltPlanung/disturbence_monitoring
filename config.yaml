@@ -1,0 +1,28 @@
+modus: "fruehjahr" # oder sommer
+output_folder: "Y:\\2025_Thueringenforst_Schadflaechen\\temp"
+
+force:
+  ndvi: "Y:/2025_Thueringenforst_Schadflaechen/temp/temp/clipped_NDV.tif"
+  ndwi: "Y:/2025_Thueringenforst_Schadflaechen/temp/temp/clipped_NDW.tif"
+  nbr: "Y:/2025_Thueringenforst_Schadflaechen/temp/temp/clipped_NBR.tif"
+  dswi: "Y:/2025_Thueringenforst_Schadflaechen/temp/temp/clipped_DSW.tif"
+  swir1: "Y:/2025_Thueringenforst_Schadflaechen/temp/temp/clipped_SW1.tif"
+
+harmonic_result: "Y:/2025_Thueringenforst_Schadflaechen/temp/temp/clipped_harmonic.tif"
+analyseflaeche: "Y:/2025_Thueringenforst_Schadflaechen/temp/temp/clipped_analyseflaeche_laub_nadel_holzboden_2025.tif"
+result_last_year: "Y:/2025_Thueringenforst_Schadflaechen/temp/temp/clipped_ergebnis_sommer_2024_rasterized.tif"
+
+maxent: # Parameter training_points & class_attribute nur notwendig bei Berechnung der Klassifikation
+  classification: Null #"Y:/2025_Thueringenforst_Schadflaechen/temp/temp/clipped_klassifikation.tif" # null falls die Klassifikation berechnet werden soll
+  training_points: 'Y:\2025_Thueringenforst_Schadflaechen\data_train/visuelle_trainingspunkte.shp'
+  class_attribute: 'class_cor'
+
+ # threshold: 0.8
+
+postprocessing: false # false falls nur die Klassifikation gestartet werden soll
+postprocess:
+  ndvi_threshold: 0.1
+
+vectorizing: true # false falls nur das Raster ausgegeben werden soll
+vectorize:
+  min_area: 200
