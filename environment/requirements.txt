@@ -7,3 +7,4 @@ numpy==1.24.0
 rasterstats==0.15.0
 pyyaml==6.0.2
 scikit-learn==1.6.1
+git+https://github.com/LUP-LuftbildUmweltPlanung/geo_utils_core
