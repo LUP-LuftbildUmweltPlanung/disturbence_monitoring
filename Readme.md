@@ -15,8 +15,12 @@ An in-depth paragraph about your project and overview of use.
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+```
+conda create --name SITSclass python==3.12
+conda activate disturbence_monitoring
+cd /path/to/repository/disturbence_monitoring
+pip install -r requirements.txt
+```
 
 ### Executing program
 
