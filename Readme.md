@@ -1,25 +1,23 @@
 # Project Title
 
-Simple overview of use/purpose.
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+
 
 ## Getting Started
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+
 
 ### Installing
 
 ```
-conda create --name disturbence_monitoring python==3.12
+git clone https://github.com/LUP-LuftbildUmweltPlanung/disturbence_monitoring
+conda create -n disturbence_monitoring -c conda-forge python=3.10 gdal=3.8 rasterio=1.3.9 fiona=1.9 geopandas shapely pyyaml tqdm
 conda activate disturbence_monitoring
-cd /path/to/repository/disturbence_monitoring
-pip install -r environments/requirements.txt
+pip install git+https://github.com/LUP-LuftbildUmweltPlanung/geo_utils_core
 ```
 
 ### Executing program
