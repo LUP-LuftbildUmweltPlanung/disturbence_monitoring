@@ -1,6 +1,7 @@
 import rasterio
 import geopandas as gpd
 from rasterio import features
+from rasterio.warp import reproject, Resampling
 from shapely.geometry import shape
 import numpy as np
 import os
