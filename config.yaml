@@ -1,28 +1,29 @@
-modus: "sommer" # oder sommer
-bundesland: "sachsen" # oder sachsen
-output_folder: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/temp_2025"
+modus: "sommer" # fruehling oder sommer. Für fruehling werden nur Schadflächen auf Nadelwaldflächen erfasst.
+output_folder: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/test" # Speicherpfad für die Ergebnisse
+hold: "true" # false falls Berechnung gestoppt werden soll zur Überprüfung der Ergebnisse
 
-force:
-  ndvi: "Y:/2025_Thueringenforst_Schadflaechen/temp/temp/clipped_NDV.tif"
-  ndwi: "Y:/2025_Thueringenforst_Schadflaechen/temp/temp/clipped_NDW.tif"
-  nbr: "Y:/2025_Thueringenforst_Schadflaechen/temp/temp/clipped_NBR.tif"
-  dswi: "Y:/2025_Thueringenforst_Schadflaechen/temp/temp/clipped_DSW.tif"
-  swir1: "Y:/2025_Thueringenforst_Schadflaechen/temp/temp/clipped_SW1.tif"
+force: # nur notwendig, wenn die Klassifikation ausgeführt werden soll.
+  ndvi: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/data_2025_summer/NDVI.tif"
+  ndwi: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/data_2025_summer/NDWI.tif"
+  nbr: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/data_2025_summer/NBR.tif"
+  dswi: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/data_2025_summer/DSWI.tif"
+  swir1: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/data_2025_summer/SWIR1.tif"
 
-harmonic_result: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/temp_2025/harmonic.tif"
-analyseflaeche: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/temp_2025/ana.tif"
-result_last_year_summer: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/results_2024/ergebnis_sommer_2024_rasterized.tif"
-result_current_year_spring: "" # Nur benötigt für Modus = "sommer"
+harmonic_result: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/temp_2025/harmonic_model_coregistered.tif" # Pfad zum Ergebnis des harmonischen Modells
+analyseflaeche: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/data_process/analyseflaeche_coregistrated.tif" # Pfad zu Analyseflächen mit den Klassen 1=Nadelwald, 2=Sonstiger Wald. 3=Lärche
+result_last_year_summer: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/results_2024/ergebnis_sommer_2024_rasterized.tif" # Pfad zum Ergebnis der Differenzberechnung des letzten Sommers. Nur notwendig wenn Bundesland="thueringen"
+result_current_year_spring: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/results_2025_spring/difference_2025_new.tif" # Pfad zum Ergebnis der Differenzberechnung des letzten Frühlings. Nur notwendig wenn Bundesland="thueringen" & Modus="sommer"
 
 maxent: # Parameter training_points & class_attribute nur notwendig bei Berechnung der Klassifikation
-  classification: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/temp_2025/class.tif" # null falls die Klassifikation berechnet werden soll
-  training_points: 'Y:/2025_Thueringenforst_Schadflaechen/data_train/visuelle_trainingspunkte.shp'
-  class_attribute: 'class_cor' # Attributname welches die Klasse enthält
+  classification: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/test/temp_folder/classification.tif" # Pfad zum Klassifikationsergebnis. null falls die Klassifikation berechnet werden soll
+  training_points: "C:/Users/frede/Desktop/Freddy/2025_Thueringenforst_Schadflaechen/data_train/trainingspunkte_sommer_2025.shp" # Pfad zu den Trainingspunkten mit den Klassen 1=Nadelwald, 2=Freifläche, 3=stehend abgestorben, 4=sonstiger Wald
+  class_attribute: "class_cor" # Attributname welches die Klasse enthält
 
-postprocess:
-  ndvi_threshold: 0.1
+postprocess_classification: true # true für nachträgliche Korrektur der Klassifikation über NDVI Schwellenwert
+ndvi_threshold: 0.1
 
-calc_disturbence: true # Berechnung der Schadflächen
+calc_disturbence: false # Berechnung der Schadflächen.
+calc_difference: false # Berechnung der Differenz
 
-vectorizing: false # false falls nur das Raster ausgegeben werden soll
-min_area: 200
+vectorize: false # vektorisieren und filtern des Differenzergebnisses
+min_area: 20 # Schwellenwert zum filtern kleiner Polygone
